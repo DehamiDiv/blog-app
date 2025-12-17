@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
-.scrollbar-hide::-webkit-scrollbar{
+.scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-.scrollbar-hide{
+
+.scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-*{
+* {
     background-color: rgb(255, 255, 255);
 }

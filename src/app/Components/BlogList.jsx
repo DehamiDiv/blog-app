@@ -36,8 +36,8 @@ const BlogList = () => {
           <button
             key={cat}
             onClick={() => setMenu(cat)}
-            className={`py-1 px-4 rounded-sm ${
-              menu === cat ? "bg-black text-white" : "bg-gray-200"
+            className={`py-1 px-4 rounded-sm transition-all duration-300 ${
+              menu === cat ? "bg-black text-white shadow-md" : "bg-gray-200"
             }`}
           >
             {cat}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { assets } from "../Assets/assets"
 import axios from "axios"
 import { toast } from "react-toastify"
@@ -40,10 +41,10 @@ const Header = () => {
           className="w-[130px] sm:w-auto"
         />
 
-        <button className="flex items-center gap-2 font-medium py-3 px-4 sm:py-3 border border-black shadow-[-7px_7px_0px_#000000]">
+        <Link href='/admin' className="flex items-center gap-2 font-medium py-3 px-4 sm:py-3 border border-black shadow-[-7px_7px_0px_#000000]">
           Get started
           <Image src={assets.arrow} width={20} height={20} alt="arrow" />
-        </button>
+        </Link>
       </div>
 
       <div className="text-center my-8">
