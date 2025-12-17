@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { writeFile, unlink } from "fs/promises";
 import { ConnectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModel";
 
@@ -45,12 +44,7 @@ export async function POST(request) {
     }
 
     const imageBuffer = Buffer.from(await image.arrayBuffer());
-    const fileName = `${timestamp}_${image.name}`;
-    const filePath = `./public/${fileName}`;
-
-    await writeFile(filePath, imageBuffer);
-
-    const imgUrl = `/${fileName}`;
+    const base64Image = `data:${image.type};base64,${imageBuffer.toString("base64")}`;
 
     /* ---------- BLOG DATA ---------- */
     const blogData = {
@@ -59,7 +53,7 @@ export async function POST(request) {
       category: formData.get("category"),
       author: formData.get("author"),
       authorImg: formData.get("authorImg"),
-      image: imgUrl,
+      image: base64Image,
     };
 
     await BlogModel.create(blogData);
@@ -99,15 +93,6 @@ export async function DELETE(req) {
         { success: false, msg: "Blog not found" },
         { status: 404 }
       );
-    }
-
-    // Delete blog image from public folder
-    if (blog.image) {
-      try {
-        await unlink(`./public${blog.image}`);
-      } catch (err) {
-        console.warn("Failed to delete image:", err.message);
-      }
     }
 
     // Delete blog from DB
