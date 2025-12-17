@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import Image from "next/image"
 import { assets } from "../Assets/assets"
 import axios from "axios"
-import toast from "react-hot-toast"
+import { toast } from "react-toastify"
 
 const Header = () => {
   const [email, setEmail] = useState("")
@@ -59,6 +59,7 @@ const Header = () => {
         <form
           onSubmit={onSubmitHandler}
           className="flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black shadow-[-7px_7px_8px_#000000]"
+          aria-label="Subscribe to newsletter"
         >
           <input
             type="email"

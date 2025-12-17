@@ -1,5 +1,5 @@
-import { ConnectDB } from "@/lib/config/db";
-import EmailModel from "@/lib/models/EmailModel";
+import { ConnectDB } from "@/lib/config/db.js";
+import EmailModel from "@/lib/models/EmailModel.js";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {

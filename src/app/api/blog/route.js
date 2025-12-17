@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { writeFile, unlink } from "fs/promises";
-import { ConnectDB } from "../../lib/config/db";
-import BlogModel from "../../lib/models/BlogModel";
+import { ConnectDB } from "@/lib/config/db";
+import BlogModel from "@/lib/models/BlogModel";
 
 // Connect DB once
 ConnectDB();
