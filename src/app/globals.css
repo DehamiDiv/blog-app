@@ -9,6 +9,7 @@
     scrollbar-width: none;
 }
 
-* {
-    background-color: rgb(255, 255, 255);
+body {
+    color: #4b4b4b;
+    background-color: #f2f2f1;
 }
